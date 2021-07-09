@@ -8,8 +8,8 @@ void main() {
       WebSocketTransformer.upgrade(request).then((WebSocket ws) {
         ws.listen(
           (data) {
-            print('${Map<String, String>.from(json.decode(data))}');
             if (ws.readyState == WebSocket.open) {
+              print('Recieved from client: ${json.decode(data)}');
               ws.add(data);
             }
           },
